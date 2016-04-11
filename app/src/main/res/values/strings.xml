@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">UjaFachumTFG</string>
+    <string name="DataBaseName">Fachumdb</string>
+
+
+    <!-- String Generales -->
+    <string name="inicio">Inicio</string>
+    <string name="opciones">Opciones</string>
+    <string name="salir">Salir</string>
+
+
+    <string name="hello_blank_fragment">holaaaaaaaaaaa</string>
+    <string name="title_activity_2">Activity2</string>
+
+</resources>

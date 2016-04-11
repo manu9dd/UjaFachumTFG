@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+
+    <TextView
+
+        android:id="@+id/tutorTfg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:background="?android:selectableItemBackground"
+
+        android:textSize="24sp" />
+
+
+
+    <TextView
+        android:id="@+id/NombreProyectoTfg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tutorTfg"
+        android:layout_centerInParent="true"
+        android:background="?android:selectableItemBackground"
+         />
+
+</RelativeLayout>
