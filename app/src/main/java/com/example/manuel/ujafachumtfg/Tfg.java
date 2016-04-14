@@ -9,30 +9,30 @@ import java.io.Serializable;
 
 
 public class Tfg implements Serializable{
-    private String tutor;
-    private String NombreProyecto;
+    private String ApellidosTutor;
+    private String NombreTfg;
 
 
     public Tfg(String NombreProyecto, String tutor) {
-        this.tutor = tutor;
-        this.NombreProyecto = NombreProyecto;
+        this.ApellidosTutor = tutor;
+        this.NombreTfg = NombreProyecto;
 
     }
 
     public String getTutor() {
-        return tutor;
+        return ApellidosTutor;
     }
 
     public void setTutor(String tutor) {
-        this.tutor = tutor;
+        this.ApellidosTutor = tutor;
     }
 
     public String getNombreProyecto() {
-        return NombreProyecto;
+        return NombreTfg;
     }
 
     public void setNombreProyecto(String NombreProyecto) {
-        this.NombreProyecto = NombreProyecto;
+        this.NombreTfg= NombreProyecto;
     }
 
 }
