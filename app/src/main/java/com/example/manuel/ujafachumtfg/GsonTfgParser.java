@@ -36,5 +36,29 @@ public class GsonTfgParser {
         reader.close();
         return Tfgs;
     }
+
+
+    public Alumno leerFlujoJsonAutenticacion(InputStream in) throws IOException {
+        // Nueva instancia de la clase Gson
+        Gson gson = new Gson();
+
+        JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
+
+        Alumno autentico = null;
+
+
+
+            // Lectura de objetos
+            autentico = gson.fromJson(reader, Alumno.class);
+
+
+
+
+        reader.close();
+        return autentico;
+    }
+
+
+
 }
 

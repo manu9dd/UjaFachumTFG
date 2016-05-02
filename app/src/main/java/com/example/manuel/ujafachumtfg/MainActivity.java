@@ -103,9 +103,7 @@ public class MainActivity extends AppCompatActivity {
             NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
             if (networkInfo != null && networkInfo.isConnected()) {
-                new JsonTask().
-                        execute(
-                                new URL("http://manuamate.hol.es/tfgs.php?dato=130A"));
+                new JsonTask().execute(new URL("http://manuamate.hol.es/tfgs.php?dato=130A"));
             } else {
                 Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
             }
