@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class GsonTfgParser {
 
-
     public List<Tfg> leerFlujoJson(InputStream in) throws IOException {
         // Nueva instancia de la clase Gson
         Gson gson = new Gson();

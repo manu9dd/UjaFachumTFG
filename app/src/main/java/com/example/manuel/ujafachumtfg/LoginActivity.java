@@ -42,6 +42,27 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import android.content.Context;
+import android.os.AsyncTask;
+import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -173,8 +194,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         String password = mPasswordView.getText().toString();
 
 
-        // Captamos los datos del usuario
-        LOGIN_URL = LOGIN_URL+"?username="+email+"&password="+password;
+
 
         boolean cancel = false;
         View focusView = null;
@@ -205,30 +225,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
+            mAuthTask = new UserLoginTask(email,password);
+            mAuthTask.execute(email, password);
 
-
-            /*
-        Comprobar la disponibilidad de la Red
-         */
-
-
-
-            try {
-                ConnectivityManager connMgr = (ConnectivityManager)
-                        getSystemService(Context.CONNECTIVITY_SERVICE);
-
-                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-
-                if (networkInfo != null && networkInfo.isConnected()) {
-            mAuthTask.execute(new URL(LOGIN_URL));
-                } else {
-                    Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
-                }
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
 
 
 
@@ -339,7 +338,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<URL, Void, Alumno> {
+    public class UserLoginTask extends AsyncTask<String, Void, Alumno> {
 
         private final String mEmail;
         private final String mPassword;
@@ -350,71 +349,63 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         @Override
-        protected Alumno doInBackground(URL... urls) {
+        protected Alumno doInBackground(String... arg0) {
             // TODO: attempt authentication against a network service.
 
 
+            Alumno login = null;
+            try{
+                String username = (String)arg0[0];
+                String password = (String)arg0[1];
+
+                String link="http://manuamate.hol.es/loginfull2.php";
+                String data  = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8");
+                data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+
+                URL url = new URL(link);
+                URLConnection conn = url.openConnection();
+
+                conn.setDoOutput(true);
+                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+
+                wr.write( data );
+                wr.flush();
+
+                Gson gson = new Gson();
+                JsonReader reader2 = new JsonReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 
 
 
-            Alumno autentico = null;
-
-            try {
-                // Simulate network access.
-               // Este estaba al principio Thread.sleep(2000);
-                // Establecer la conexion
-                conlon = (HttpURLConnection)urls[0].openConnection();
-                conlon.setConnectTimeout(15000);
-                conlon.setReadTimeout(10000);
-                // Obtener el estado del recurso
-                int statusCode = conlon.getResponseCode();
-
-                if(statusCode!=200) {
-
-                   // Tfgs = new ArrayList<>();
-                    // MIRAR DESDE AQUI EN CASO DE ERROR en los tfgs era error y te los creaba asi
-                   // Tfgs.add(new Tfg("error","error"));
-
-                } else {
-
-                    // Parsear el flujo con formato JSON
-                    InputStream in = new BufferedInputStream(conlon.getInputStream());
+                login = gson.fromJson(reader2, Alumno.class);
 
 
-                    GsonTfgParser parser = new GsonTfgParser();
 
-                    autentico = parser.leerFlujoJsonAutenticacion(in);
-
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }finally {
-                conlon.disconnect();
+                return login;
             }
+            catch(Exception e){
+              //  return new String("Exception: " + e.getMessage());
 
-
-            return autentico;
-
-        }
+                Alumno manu = new Alumno("0","0");
+                return manu;
+            }
+ }
 
         @Override
-        protected void onPostExecute(Alumno autentic) {
+        protected void onPostExecute(Alumno result) {
             mAuthTask = null;
             showProgress(false);
 
 
 
 
-            if (autentic.getSuccess() =="1") {
-
-                // llegados a este punto hemos ckequeado que somos un miembro de la base de datos
-                // Por lo tanto vamos a crear la nueva actividad
+          //  if (!result.substring(0, 1).equals("0"))
+            if(result.getUsuario() != "0")
+            {
 
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-               // Pasar datos entre actividades
+                // Pasar datos entre actividades
                 // Tfg tfg = ((AdaptadorDeTfgs)lista.getAdapter()).getItem(position);
-               // intent.putExtra("title", tfg);
+                // intent.putExtra("title", tfg);
                 startActivity(intent);
 
 

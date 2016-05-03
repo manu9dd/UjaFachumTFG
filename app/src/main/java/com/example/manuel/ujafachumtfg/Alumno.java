@@ -9,31 +9,31 @@ public class Alumno implements Serializable {
 
 
 
-    private String success;
-    private String message;
+    private String Usuario;
+    private String CodigoTitulacion;
 
 
-    public Alumno(String success, String message) {
+    public Alumno(String usuario, String codigoTitulacion) {
 
-        this.success = success;
-        this.message = message;
+        this.Usuario = usuario;
+        this.CodigoTitulacion = codigoTitulacion;
 
     }
 
-    public String getSuccess() {
-        return success;
+    public String getUsuario() {
+        return Usuario;
     }
 
-    public void setSuccess(String success) {
-        this.success = success;
+    public void setUsuario(String usuario) {
+        this.Usuario = usuario;
     }
 
-    public String getMessage() {
-        return message;
+    public String getCodigoTitulacion() {
+        return CodigoTitulacion;
     }
 
-    public void setMessage(String message) {
-        this.message= message;
+    public void setCodigoTitulacion(String codigoTitulacion) {
+        this.CodigoTitulacion = codigoTitulacion;
     }
 
 
