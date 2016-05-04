@@ -93,6 +93,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+        Intent intent = getIntent();
+        String codiguito  = (String) intent.getSerializableExtra("titulacion");
+
+
+
+        // Segun el codigo de titulacion recibe un parámetro u otro
+
     /*
         Comprobar la disponibilidad de la Red
          */
@@ -103,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
             if (networkInfo != null && networkInfo.isConnected()) {
-                new JsonTask().execute(new URL("http://manuamate.hol.es/tfgs.php?dato=130A"));
+                new JsonTask().execute(new URL("http://manuamate.hol.es/tfgs.php?dato="+codiguito+""));
             } else {
                 Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
             }

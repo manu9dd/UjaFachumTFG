@@ -395,17 +395,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
 
-
-
-
           //  if (!result.substring(0, 1).equals("0"))
             if(result.getUsuario() != "0")
             {
 
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                // Pasar datos entre actividades
-                // Tfg tfg = ((AdaptadorDeTfgs)lista.getAdapter()).getItem(position);
-                // intent.putExtra("title", tfg);
+
+                // Estoy pasando los datos de la titulacion para mostrar una lista de Tfg de una titulacion u otra
+                intent.putExtra("titulacion", result.getCodigoTitulacion());
                 startActivity(intent);
 
 
