@@ -399,10 +399,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if(result.getUsuario() != "0")
             {
 
+                // Hacer visible el usuario que se ha registrado
+                Toast.makeText(
+                        getBaseContext(),
+                        "Bienvenido Usuario: "+result.getUsuario()+"",
+                        Toast.LENGTH_LONG)
+                        .show();
+
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
                 // Estoy pasando los datos de la titulacion para mostrar una lista de Tfg de una titulacion u otra
-                intent.putExtra("titulacion", result.getCodigoTitulacion());
+                intent.putExtra("titulacion", result.getCodigoTitulacion());//
                 startActivity(intent);
 
 
