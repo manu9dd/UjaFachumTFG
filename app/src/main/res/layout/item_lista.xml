@@ -28,16 +28,4 @@
         />
 
 
-    <TextView
-        android:id="@+id/NombreProyectoTfg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/CodigoTutorTfg"
-        android:layout_centerInParent="true"
-        android:background="?android:selectableItemBackground"
-        />
-
-
-
-
 </RelativeLayout>

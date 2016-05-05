@@ -30,7 +30,6 @@ public class Activity2 extends AppCompatActivity {
     HttpURLConnection con;
 
     private TextView tutor;
-    private TextView proyecto;
     private TextView codigotutor;
 
 
@@ -44,7 +43,7 @@ public class Activity2 extends AppCompatActivity {
         setContentView(R.layout.activity_2);
 
         this.tutor = (TextView) findViewById(R.id.tutor);
-        this.proyecto = (TextView) findViewById(R.id.proyecto);
+
         this.codigotutor = (TextView) findViewById(R.id.codigotutor);
 
 
@@ -52,7 +51,7 @@ public class Activity2 extends AppCompatActivity {
         Intent intent = getIntent();
         Tfg tfg  = (Tfg)intent.getSerializableExtra("title");
         this.tutor.setText(tfg.getTutor());
-        this.proyecto.setText(tfg.getNombreProyecto());
+
         this.codigotutor.setText(tfg.getCodigoTutor());
 
 

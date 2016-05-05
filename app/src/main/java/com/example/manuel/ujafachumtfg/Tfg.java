@@ -11,13 +11,13 @@ import java.io.Serializable;
 public class Tfg implements Serializable{
 
     private String ApellidosTutor;
-    private String NombreTfg;
+
     private String CodigoTutor;
 
 
     public Tfg(String NombreProyecto, String tutor, String CodigoTutor) {
         this.ApellidosTutor = tutor;
-        this.NombreTfg = NombreProyecto;
+
         this.CodigoTutor = CodigoTutor;
 
     }
@@ -30,13 +30,9 @@ public class Tfg implements Serializable{
         this.ApellidosTutor = tutor;
     }
 
-    public String getNombreProyecto() {
-        return NombreTfg;
-    }
 
-    public void setNombreProyecto(String NombreProyecto) {
-        this.NombreTfg= NombreProyecto;
-    }
+
+
 
     public String getCodigoTutor(){return CodigoTutor;}
 
