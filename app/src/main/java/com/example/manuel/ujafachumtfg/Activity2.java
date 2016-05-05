@@ -13,6 +13,7 @@ public class Activity2 extends AppCompatActivity {
 
     private TextView tutor;
     private TextView proyecto;
+    private TextView codigotutor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +22,15 @@ public class Activity2 extends AppCompatActivity {
 
         this.tutor = (TextView) findViewById(R.id.tutor);
         this.proyecto = (TextView) findViewById(R.id.proyecto);
+        this.codigotutor = (TextView) findViewById(R.id.codigotutor);
+
+
 
         Intent intent = getIntent();
         Tfg tfg  = (Tfg)intent.getSerializableExtra("title");
         this.tutor.setText(tfg.getTutor());
         this.proyecto.setText(tfg.getNombreProyecto());
+        this.codigotutor.setText(tfg.getCodigoTutor());
 
     }
 

@@ -1,6 +1,7 @@
 package com.example.manuel.ujafachumtfg;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,7 @@ public class AdaptadorDeTfgs extends ArrayAdapter<Tfg> {
         //Obteniendo instancias de los elementos
         TextView tutorTfg = (TextView)v.findViewById(R.id.tutorTfg);
         TextView NombreProyectoTfg = (TextView)v.findViewById(R.id.NombreProyectoTfg);
+        TextView CodigoTutorTfg = (TextView)v.findViewById(R.id.CodigoTutorTfg);
 
 
 
@@ -52,6 +54,8 @@ public class AdaptadorDeTfgs extends ArrayAdapter<Tfg> {
 
         tutorTfg.setText(item.getTutor());
         NombreProyectoTfg.setText(item.getNombreProyecto());
+        CodigoTutorTfg.setText(item.getCodigoTutor());
+
 
 
         //Devolver al ListView la fila creada

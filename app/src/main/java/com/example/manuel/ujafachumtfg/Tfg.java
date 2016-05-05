@@ -9,13 +9,16 @@ import java.io.Serializable;
 
 
 public class Tfg implements Serializable{
+
     private String ApellidosTutor;
     private String NombreTfg;
+    private String CodigoTutor;
 
 
-    public Tfg(String NombreProyecto, String tutor) {
+    public Tfg(String NombreProyecto, String tutor, String CodigoTutor) {
         this.ApellidosTutor = tutor;
         this.NombreTfg = NombreProyecto;
+        this.CodigoTutor = CodigoTutor;
 
     }
 
@@ -34,5 +37,9 @@ public class Tfg implements Serializable{
     public void setNombreProyecto(String NombreProyecto) {
         this.NombreTfg= NombreProyecto;
     }
+
+    public String getCodigoTutor(){return CodigoTutor;}
+
+    public void setCodigoTutor(String CodigoTutor){this.CodigoTutor = CodigoTutor;}
 
 }

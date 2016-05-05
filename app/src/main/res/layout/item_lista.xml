@@ -10,20 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
         android:background="?android:selectableItemBackground"
 
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_centerVertical="true" />
 
+
+
+    <TextView
+        android:id="@+id/CodigoTutorTfg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tutorTfg"
+        android:layout_centerInParent="true"
+        android:background="?android:selectableItemBackground"
+        android:textSize="18sp"
+        />
 
 
     <TextView
         android:id="@+id/NombreProyectoTfg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tutorTfg"
+        android:layout_below="@+id/CodigoTutorTfg"
         android:layout_centerInParent="true"
         android:background="?android:selectableItemBackground"
-         />
+        />
+
+
+
 
 </RelativeLayout>

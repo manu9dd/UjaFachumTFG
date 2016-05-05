@@ -48,12 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Mis fragmentos
 
-
-    
-
     private FragmentManager fragmentManager;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,13 +87,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-
         Intent intent = getIntent();
         String codiguito  = (String) intent.getSerializableExtra("titulacion");
-
-
 
         // Segun el codigo de titulacion recibe un parámetro u otro
 
@@ -125,11 +115,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -148,9 +133,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
 
     // Son los casos del Menu Drawer
     private void CasesDrawerContent(NavigationView navigationView){
@@ -214,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                 if(statusCode!=200) {
                     Tfgs = new ArrayList<>();
                     // MIRAR DESDE AQUI EN CASO DE ERROR
-                    Tfgs.add(new Tfg("error","error"));
+                    Tfgs.add(new Tfg("error","error","error"));
 
                 } else {
 
@@ -256,10 +238,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-
-
-
 
 
 
