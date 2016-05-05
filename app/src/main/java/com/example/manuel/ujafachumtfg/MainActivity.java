@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter adaptador;
     HttpURLConnection con;
 
-
-
     private DrawerLayout drawerLayout;
 
     // Mis fragmentos

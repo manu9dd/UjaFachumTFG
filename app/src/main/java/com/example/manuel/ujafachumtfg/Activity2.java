@@ -1,6 +1,10 @@
 package com.example.manuel.ujafachumtfg;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,8 +14,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Activity2 extends AppCompatActivity {
+
+
+    HttpURLConnection con;
 
     private TextView tutor;
     private TextView proyecto;
@@ -70,9 +86,107 @@ public class Activity2 extends AppCompatActivity {
 
 
 
+    public void ejecuta_Eligetutor(String url_Elige){
+
+
+
+        try {
+            ConnectivityManager connMgr = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+            if (networkInfo != null && networkInfo.isConnected()) {
+                new Elige_Tutor().execute(new URL(url_Elige));
+            } else {
+                Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+    }
+
+
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         finish();
     }
+
+
+
+
+    public class Elige_Tutor extends AsyncTask<URL, Void, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+
+        String var = null;
+
+
+            try {
+
+                // Establecer la conexion
+                con = (HttpURLConnection)urls[0].openConnection();
+                con.setConnectTimeout(15000);
+                con.setReadTimeout(10000);
+
+                // Obtener el estado del recurso
+                int statusCode = con.getResponseCode();
+
+                if(statusCode!=200) {
+
+                    // MIRAR DESDE AQUI EN CASO DE ERROR
+
+
+                } else {
+
+                    // Parsear el flujo con formato JSON
+
+
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+            }finally {
+                con.disconnect();
+            }
+            return var;
+        }
+
+
+
+        @Override
+        protected void onPostExecute(String variable) {
+            /*
+            Asignar los objetos de Json parseados al adaptador
+             */
+            if(variable !=null) {
+
+                // Crear un toast si se ha guardado
+
+
+            }else{
+
+                // Crear un toast si no se ha guardado
+
+            }
+
+        }
+
+
+
+
+
+    }
+
+
+
 }
