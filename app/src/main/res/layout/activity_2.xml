@@ -1,29 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context="com.example.manuel.ujafachumtfg.Activity2">
+    tools:context="com.example.manuel.ujafachumtfg.Activity2"
+    android:weightSum="1">
 
-    <TextView
-        android:id="@+id/tutor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="texto"/>
+
+    <include layout="@layout/toolbar_mia"
+        android:id="@+id/include" />
+
 
     <TextView
         android:id="@+id/proyecto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="texto"/>
+        android:text="texto"
+        android:layout_below="@+id/tutor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="21dp" />
 
     <TextView
         android:id="@+id/codigotutor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="texto"/>
+        android:text="texto"
+        android:layout_above="@+id/button_eligetutor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="47dp" />
 
-</LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tutor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="texto"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_below="@+id/include"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+
+    <Button
+
+        android:id="@+id/button_eligetutor"
+        android:layout_width="107dp"
+        android:layout_height="67dp"
+        android:text="@string/elegir_tutor"
+        android:layout_gravity="left|center_vertical"
+        android:layout_alignTop="@+id/button_borratutor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+         />
+
+    <Button
+
+        android:id="@+id/button_borratutor"
+        android:layout_width="107dp"
+        android:layout_height="67dp"
+        android:text="@string/borra_tutor"
+        android:layout_gravity="center"
+       android:layout_below="@+id/tutor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="131dp" />
+
+
+
+
+</RelativeLayout>

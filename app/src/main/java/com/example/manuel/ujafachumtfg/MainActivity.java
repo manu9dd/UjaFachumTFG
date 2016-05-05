@@ -203,11 +203,9 @@ public class MainActivity extends AppCompatActivity {
                     // Parsear el flujo con formato JSON
                     InputStream in = new BufferedInputStream(con.getInputStream());
 
-
                     GsonTfgParser parser = new GsonTfgParser();
 
                     Tfgs = parser.leerFlujoJson(in);
-
 
                 }
 

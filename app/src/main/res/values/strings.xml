@@ -27,4 +27,15 @@
     </string>
     <string name="title_activity_login2">UjaFachum</string>
 
+
+
+
+
+
+    <!-- String related to Activity 2 -->
+
+
+    <string name="elegir_tutor"> Elige este Tutor </string>
+    <string name="borra_tutor"> Borre este Tutor </string>
+
 </resources>
