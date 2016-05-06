@@ -12,25 +12,27 @@ public class Tfg implements Serializable{
 
     private String ApellidosTutor;
 
+    private String NombreTutor;
+
     private String CodigoTutor;
 
 
-    public Tfg(String NombreProyecto, String tutor, String CodigoTutor) {
+    public Tfg(String NombreTutor, String tutor, String CodigoTutor) {
         this.ApellidosTutor = tutor;
-
+        this.NombreTutor = NombreTutor;
         this.CodigoTutor = CodigoTutor;
 
     }
 
-    public String getTutor() {
-        return ApellidosTutor;
-    }
+    public String getApellidosTutor() {return ApellidosTutor;}
 
-    public void setTutor(String tutor) {
+    public void setApellidosTutor(String tutor) {
         this.ApellidosTutor = tutor;
     }
 
 
+    public String getNombreTutor(){return NombreTutor;}
+    public void setNombreTutor(String NombreTutor){this.NombreTutor = NombreTutor;}
 
 
 

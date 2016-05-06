@@ -29,8 +29,9 @@ public class Activity2 extends AppCompatActivity {
 
     HttpURLConnection con;
 
-    private TextView tutor;
+    private TextView apellidotutor;
     private TextView codigotutor;
+    private TextView nombretutor;
 
 
     // Botones de Eleccion y borrado del tutor
@@ -42,7 +43,8 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
-        this.tutor = (TextView) findViewById(R.id.tutor);
+        this.apellidotutor = (TextView) findViewById(R.id.tutor);
+        this.nombretutor = (TextView) findViewById(R.id.NombreTutor);
 
         this.codigotutor = (TextView) findViewById(R.id.codigotutor);
 
@@ -50,8 +52,8 @@ public class Activity2 extends AppCompatActivity {
 
         Intent intent = getIntent();
         Tfg tfg  = (Tfg)intent.getSerializableExtra("title");
-        this.tutor.setText(tfg.getTutor());
-
+        this.apellidotutor.setText(tfg.getApellidosTutor());
+        this.nombretutor.setText(tfg.getNombreTutor());
         this.codigotutor.setText(tfg.getCodigoTutor());
 
 

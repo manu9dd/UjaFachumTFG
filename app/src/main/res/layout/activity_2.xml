@@ -17,19 +17,6 @@
         android:id="@+id/include" />
 
 
-
-    <TextView
-        android:id="@+id/codigotutor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="texto"
-        android:layout_above="@+id/button_eligetutor"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="47dp" />
-
-
-
     <TextView
         android:id="@+id/tutor"
         android:layout_width="match_parent"
@@ -41,7 +28,27 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <TextView
+        android:id="@+id/codigotutor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="texto"
+        android:layout_below="@+id/tutor"
+        android:layout_above="@+id/button_eligetutor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
 
+
+    <TextView
+        android:id="@+id/NombreTutor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="texto"
+        android:layout_below="@+id/tutor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
 
     <Button
 

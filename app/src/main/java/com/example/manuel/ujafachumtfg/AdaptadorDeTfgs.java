@@ -43,7 +43,10 @@ public class AdaptadorDeTfgs extends ArrayAdapter<Tfg> {
         }
 
         //Obteniendo instancias de los elementos
-        TextView tutorTfg = (TextView)v.findViewById(R.id.tutorTfg);
+
+        TextView NombreTutor = (TextView)v.findViewById(R.id.NombreTutorTfg);
+
+        TextView ApellidosTutor = (TextView)v.findViewById(R.id.ApellidosTutorTfg);
 
         TextView CodigoTutorTfg = (TextView)v.findViewById(R.id.CodigoTutorTfg);
 
@@ -52,7 +55,9 @@ public class AdaptadorDeTfgs extends ArrayAdapter<Tfg> {
         //Obteniendo instancia de la Tarea en la posición actual
         Tfg item = getItem(position);
 
-        tutorTfg.setText(item.getTutor());
+        NombreTutor.setText(item.getNombreTutor());
+
+        ApellidosTutor.setText(item.getApellidosTutor());
 
         CodigoTutorTfg.setText(item.getCodigoTutor());
 
