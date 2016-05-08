@@ -34,10 +34,8 @@
         android:layout_height="wrap_content"
         android:text="texto"
         android:layout_below="@+id/tutor"
-        android:layout_above="@+id/button_eligetutor"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        />
+        android:layout_alignParentStart="true" />
 
 
     <TextView
@@ -50,6 +48,10 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp" />
 
+
+
+
+
     <Button
 
         android:id="@+id/button_eligetutor"
@@ -57,10 +59,10 @@
         android:layout_height="67dp"
         android:text="@string/elegir_tutor"
         android:layout_gravity="left|center_vertical"
-        android:layout_alignTop="@+id/button_borratutor"
+
+        android:layout_below="@+id/NombreTutor"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-         />
+        android:layout_alignParentStart="true" />
 
     <Button
 
@@ -69,9 +71,18 @@
         android:layout_height="67dp"
         android:text="@string/borra_tutor"
         android:layout_gravity="center"
-       android:layout_below="@+id/tutor"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="131dp" />
+
+        android:layout_alignTop="@+id/button_eligetutor"
+        android:layout_centerHorizontal="true" />
+
+
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_below="@id/button_eligetutor"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </ListView>
 
 
 

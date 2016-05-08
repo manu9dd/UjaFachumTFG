@@ -11,8 +11,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,12 +27,19 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Activity2 extends AppCompatActivity {
 
 
     HttpURLConnection con;
+
+    private ListView list ;
+    private ArrayAdapter<Tutor_tfg> listAdapter ;
+
+
+
 
     private TextView apellidotutor;
     private TextView codigotutor;
@@ -38,11 +50,43 @@ public class Activity2 extends AppCompatActivity {
     private Button btn_eligetutor;
     private Button btn_borratutor;
 
+
+
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
+////// la lista eo
+
+        list = (ListView) findViewById( R.id.list );
+
+
+        ArrayList<Tutor_tfg> AdapterList = new ArrayList<Tutor_tfg>();
+
+
+
+
+        // Create ArrayAdapter using the planet list.
+        listAdapter = new ArrayAdapter<Tutor_tfg>(this, R.layout.simplerow, AdapterList);
+
+
+
+
+
+
+
+
+        // Set the ArrayAdapter as the ListView's adapter.
+        list.setAdapter( listAdapter );
+
+////////////////////
         this.apellidotutor = (TextView) findViewById(R.id.tutor);
         this.nombretutor = (TextView) findViewById(R.id.NombreTutor);
 
@@ -190,4 +234,8 @@ public class Activity2 extends AppCompatActivity {
 
 
 
+
 }
+
+
+

@@ -31,6 +31,7 @@ import java.util.List;
 
 import static com.example.manuel.ujafachumtfg.R.layout.activity_main;
 
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -52,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_main);
-
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.appbar);
