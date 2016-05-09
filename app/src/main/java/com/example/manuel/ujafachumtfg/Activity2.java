@@ -36,7 +36,7 @@ public class Activity2 extends AppCompatActivity {
     HttpURLConnection con;
 
     private ListView list ;
-    private ArrayAdapter<Tutor_tfg> listAdapter ;
+    private ArrayAdapter<String> listAdapter ;
 
 
 
@@ -68,23 +68,19 @@ public class Activity2 extends AppCompatActivity {
         list = (ListView) findViewById( R.id.list );
 
 
-        ArrayList<Tutor_tfg> AdapterList = new ArrayList<Tutor_tfg>();
+        //ArrayList<Tutor_tfg> AdapterList = new ArrayList<Tutor_tfg>();
 
 
 
 
         // Create ArrayAdapter using the planet list.
-        listAdapter = new ArrayAdapter<Tutor_tfg>(this, R.layout.simplerow, AdapterList);
-
-
-
-
-
-
+        //listAdapter = new ArrayAdapter<Tutor_tfg>(this, R.layout.simplerow, AdapterList);
 
 
         // Set the ArrayAdapter as the ListView's adapter.
-        list.setAdapter( listAdapter );
+     //   list.setAdapter( listAdapter );
+
+
 
 ////////////////////
         this.apellidotutor = (TextView) findViewById(R.id.tutor);
@@ -127,6 +123,24 @@ public class Activity2 extends AppCompatActivity {
 
 
 
+
+        try {
+            ConnectivityManager connMgr = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+            if (networkInfo != null && networkInfo.isConnected()) {
+                new JsonTask2().execute(new URL("http://manuamate.hol.es/tfgtutor.php?dato="+tfg.getCodigoTutor()));
+            } else {
+                Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 
@@ -165,6 +179,78 @@ public class Activity2 extends AppCompatActivity {
     }
 
 
+
+
+
+
+    public class JsonTask2 extends AsyncTask<URL, Void, List<Tutor_tfg>> {
+
+        @Override
+        protected List<Tutor_tfg> doInBackground(URL... urls) {
+            List<Tutor_tfg> Tfgs = null;
+
+            try {
+
+                // Establecer la conexion
+                con = (HttpURLConnection)urls[0].openConnection();
+                con.setConnectTimeout(15000);
+                con.setReadTimeout(10000);
+
+                // Obtener el estado del recurso
+                int statusCode = con.getResponseCode();
+
+                if(statusCode!=200) {
+                    Tfgs = new ArrayList<>();
+                    // MIRAR DESDE AQUI EN CASO DE ERROR
+                    Tfgs.add(new Tutor_tfg("error","error"));
+
+                } else {
+
+                    // Parsear el flujo con formato JSON
+                    InputStream in = new BufferedInputStream(con.getInputStream());
+
+                    GsonTfgParser parser = new GsonTfgParser();
+
+                    Tfgs = parser.leerFlujoJson2(in);
+
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+            }finally {
+                con.disconnect();
+            }
+            return Tfgs;
+        }
+
+        @Override
+        protected void onPostExecute(List<Tutor_tfg> Tfgs) {
+            /*
+            Asignar los objetos de Json parseados al adaptador
+             */
+            if(Tfgs !=null) {
+
+                ArrayList<String> datos = new ArrayList<>();
+                for(int i=0; i<Tfgs.size(); i++)
+                {
+                    datos.add(Tfgs.get(i).getNombreTfg());
+                }
+
+
+                listAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.simplerow, datos);
+                list.setAdapter(listAdapter);
+
+            }else{
+                Toast.makeText(
+                        getBaseContext(),
+                        "Ocurrio un error de Parsing Json",
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+
+        }
+    }
 
 
     public class Elige_Tutor extends AsyncTask<URL, Void, String> {
