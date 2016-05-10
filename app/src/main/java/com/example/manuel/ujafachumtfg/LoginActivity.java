@@ -410,6 +410,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                 // Estoy pasando los datos de la titulacion para mostrar una lista de Tfg de una titulacion u otra
                 intent.putExtra("titulacion", result.getCodigoTitulacion());//
+                intent.putExtra("usuario", result.getUsuario());
                 startActivity(intent);
 
 

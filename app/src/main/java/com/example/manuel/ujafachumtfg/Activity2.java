@@ -40,6 +40,8 @@ public class Activity2 extends AppCompatActivity {
     private ListView list ;
     private ArrayAdapter<String> listAdapter ;
 
+    String usuarioconectado;
+
 
 private TextView tematicas;
 
@@ -57,6 +59,10 @@ private TextView tematicas;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
+
+
+
+        usuarioconectado =  getIntent().getStringExtra("usuario");
 
 ////// la lista eo
 
@@ -88,7 +94,7 @@ private TextView tematicas;
 
 
         Intent intent = getIntent();
-        Tfg tfg  = (Tfg)intent.getSerializableExtra("title");
+        final Tfg tfg  = (Tfg)intent.getSerializableExtra("title");
         this.apellidotutor.setText(tfg.getApellidosTutor());
         this.nombretutor.setText(tfg.getNombreTutor());
         this.codigotutor.setText(tfg.getCodigoTutor());
@@ -113,7 +119,7 @@ private TextView tematicas;
                     NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
                     if (networkInfo != null && networkInfo.isConnected()) {
-                        new Elige_Tutor().execute(new URL("http://manuamate.hol.es/eligetutor.php?usuario=joseo&tutor="));
+                        new Elige_Tutor().execute(new URL("http://manuamate.hol.es/eligetutor.php?usuario="+usuarioconectado+"&tutor="+tfg.getCodigoTutor()));
                     } else {
                         Toast.makeText(getBaseContext(), "Error de conexion", Toast.LENGTH_LONG).show();
                     }
@@ -162,27 +168,11 @@ private TextView tematicas;
 
 
 
-    public void ejecuta_Eligetutor(String url_Elige){
-
-
-
-
-
-
-
-    }
-
-
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         finish();
     }
-
-
-
-
 
 
     public class JsonTask2 extends AsyncTask<URL, Void, List<Tutor_tfg>> {

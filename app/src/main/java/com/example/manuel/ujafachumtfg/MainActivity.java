@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     /*
  Variables globales
   */
+
+     String usuarioconectado;
+
     ListView lista;
     ArrayAdapter adaptador;
     HttpURLConnection con;
@@ -54,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(activity_main);
 
+
+
+        usuarioconectado =  getIntent().getStringExtra("usuario");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.appbar);
         setSupportActionBar(toolbar);
@@ -79,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Activity2.class);
                 Tfg tfg = ((AdaptadorDeTfgs)lista.getAdapter()).getItem(position);
                 intent.putExtra("title", tfg);
+                intent.putExtra("usuario",usuarioconectado);
                 startActivity(intent);
                 Log.i("TOCO", "entro");
             }
