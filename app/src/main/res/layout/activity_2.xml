@@ -19,34 +19,37 @@
 
     <TextView
         android:id="@+id/tutor"
+
+        android:textColor="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
         android:text="texto"
-        android:layout_gravity="center_horizontal|top"
-        android:layout_below="@+id/include"
+        android:textSize="18sp"
+        android:layout_above="@+id/button_eligetutor"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/codigotutor"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="texto"
-        android:layout_below="@+id/tutor"
+        android:layout_above="@+id/tutor"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
 
     <TextView
         android:id="@+id/NombreTutor"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="texto"
-        android:layout_below="@+id/tutor"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp" />
+        android:textSize="18sp"
+        android:layout_below="@+id/codigotutor"
+        android:layout_alignLeft="@+id/button_borratutor"
+        android:layout_alignStart="@+id/button_borratutor" />
 
 
 
@@ -59,10 +62,9 @@
         android:layout_height="67dp"
         android:text="@string/elegir_tutor"
         android:layout_gravity="left|center_vertical"
-
-        android:layout_below="@+id/NombreTutor"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/codigotutor"
+        android:layout_alignStart="@+id/codigotutor" />
 
     <Button
 
@@ -73,18 +75,31 @@
         android:layout_gravity="center"
 
         android:layout_alignTop="@+id/button_eligetutor"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="58dp"
+        android:layout_marginEnd="58dp" />
+
+
+
+    <TextView
+        android:id="@+id/tematicas"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="@string/tematicas"
+        android:layout_below="@+id/include"
         android:layout_centerHorizontal="true" />
 
-
-
     <ListView
-        android:id="@+id/list"
-        android:layout_below="@id/button_eligetutor"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-    </ListView>
-
-
+        android:id="@+id/list"
+        android:layout_below="@+id/tematicas"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/codigotutor" />
 
 
 </RelativeLayout>

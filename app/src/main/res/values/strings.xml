@@ -37,5 +37,6 @@
 
     <string name="elegir_tutor"> Elige este Tutor </string>
     <string name="borra_tutor"> Quite este Tutor </string>
+    <string name="tematicas"> Temáticas o Tfg´s disponibles   </string>
 
 </resources>

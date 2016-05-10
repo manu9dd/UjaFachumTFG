@@ -21,6 +21,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -39,7 +41,7 @@ public class Activity2 extends AppCompatActivity {
     private ArrayAdapter<String> listAdapter ;
 
 
-
+private TextView tematicas;
 
     private TextView apellidotutor;
     private TextView codigotutor;
@@ -83,6 +85,8 @@ public class Activity2 extends AppCompatActivity {
 
 
 ////////////////////
+        this.tematicas = (TextView) findViewById(R.id.tematicas);
+
         this.apellidotutor = (TextView) findViewById(R.id.tutor);
         this.nombretutor = (TextView) findViewById(R.id.NombreTutor);
 
