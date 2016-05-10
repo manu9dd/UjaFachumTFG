@@ -53,13 +53,6 @@ private TextView tematicas;
     private Button btn_borratutor;
 
 
-
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,6 +103,26 @@ private TextView tematicas;
             public void onClick(View arg0)
             {
                 Log.i("Elige", "onClick: ");
+
+            // Llamamos a la funcion del servidor para guardar los tfgs
+
+                try {
+                    ConnectivityManager connMgr = (ConnectivityManager)
+                            getSystemService(Context.CONNECTIVITY_SERVICE);
+
+                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+                    if (networkInfo != null && networkInfo.isConnected()) {
+                        new Elige_Tutor().execute(new URL("http://manuamate.hol.es/eligetutor.php?usuario=joseo&tutor="));
+                    } else {
+                        Toast.makeText(getBaseContext(), "Error de conexion", Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+
+
             }
         });
 
@@ -153,21 +166,6 @@ private TextView tematicas;
 
 
 
-        try {
-            ConnectivityManager connMgr = (ConnectivityManager)
-                    getSystemService(Context.CONNECTIVITY_SERVICE);
-
-            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-
-            if (networkInfo != null && networkInfo.isConnected()) {
-                new Elige_Tutor().execute(new URL(url_Elige));
-            } else {
-                Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
-            }
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
 
 
 
