@@ -50,6 +50,8 @@ public class AdaptadorDeTfgs extends ArrayAdapter<Tfg> {
 
         TextView CodigoTutorTfg = (TextView)v.findViewById(R.id.CodigoTutorTfg);
 
+        TextView PrioridadTfg = (TextView)v.findViewById(R.id.PrioridadTfg);
+
 
 
         //Obteniendo instancia de la Tarea en la posición actual
@@ -60,6 +62,8 @@ public class AdaptadorDeTfgs extends ArrayAdapter<Tfg> {
         ApellidosTutor.setText(item.getApellidosTutor());
 
         CodigoTutorTfg.setText(item.getCodigoTutor());
+
+        PrioridadTfg.setText(item.getPrioridad());
 
 
 

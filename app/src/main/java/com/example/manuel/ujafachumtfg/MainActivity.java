@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
             if (networkInfo != null && networkInfo.isConnected()) {
-                new JsonTask().execute(new URL("http://manuamate.hol.es/tfgs.php?dato="+codiguito+""));
+                new JsonTask().execute(new URL("http://manuamate.hol.es/tfgs.php?dato="+codiguito+"&usuario="+usuarioconectado));
             } else {
                 Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
             }
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                 if(statusCode!=200) {
                     Tfgs = new ArrayList<>();
                     // MIRAR DESDE AQUI EN CASO DE ERROR
-                    Tfgs.add(new Tfg("error","error","error"));
+                    Tfgs.add(new Tfg("error","error","error","error"));
 
                 } else {
 
