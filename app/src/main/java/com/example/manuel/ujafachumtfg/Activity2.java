@@ -60,8 +60,6 @@ private TextView tematicas;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
-
-
         usuarioconectado =  getIntent().getStringExtra("usuario");
 
 ////// la lista eo
@@ -71,9 +69,7 @@ private TextView tematicas;
 
         //ArrayList<Tutor_tfg> AdapterList = new ArrayList<Tutor_tfg>();
 
-
-
-
+        
         // Create ArrayAdapter using the planet list.
         //listAdapter = new ArrayAdapter<Tutor_tfg>(this, R.layout.simplerow, AdapterList);
 
