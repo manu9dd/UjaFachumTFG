@@ -63,9 +63,9 @@ public class AdaptadorDeTfgs extends ArrayAdapter<Tfg> {
 
         CodigoTutorTfg.setText(item.getCodigoTutor());
 
-       // PrioridadTfg.setText(item.getPrioridad());
 
 
+        // Si la prioridad esta a 0 no la muestra
 
         if(item.getPrioridad().equals("0")) {
             PrioridadTfg.setText(" ");
