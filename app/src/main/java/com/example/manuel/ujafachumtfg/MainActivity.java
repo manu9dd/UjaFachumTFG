@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("usuario",usuarioconectado);
                 startActivity(intent);
                 Log.i("TOCO", "entro");
+
             }
         });
 
@@ -240,6 +241,58 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+
+    @Override
+    public void onRestart() {
+        super.onRestart();  // Always call the superclass method first
+
+        // Activity being restarted from stopped state
+    }
+
+
+
+    @Override
+    public void onPause() {
+        super.onPause();  // Always call the superclass method first
+
+    }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+
+
+
+        Intent intent = getIntent();
+        String codiguito  = (String) intent.getSerializableExtra("titulacion");
+
+        // Segun el codigo de titulacion recibe un parámetro u otro
+
+    /*
+        Comprobar la disponibilidad de la Red
+         */
+        try {
+            ConnectivityManager connMgr = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+            if (networkInfo != null && networkInfo.isConnected()) {
+                new JsonTask().execute(new URL("http://manuamate.hol.es/tfgs.php?dato="+codiguito+"&usuario="+usuarioconectado));
+            } else {
+                Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 
 

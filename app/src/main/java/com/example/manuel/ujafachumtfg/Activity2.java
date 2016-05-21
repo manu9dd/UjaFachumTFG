@@ -1,5 +1,6 @@
 package com.example.manuel.ujafachumtfg;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,6 +14,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.internal.widget.DialogTitle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,7 +46,6 @@ import java.util.List;
 
 
 public class Activity2 extends AppCompatActivity {
-
 
 
 
@@ -145,6 +146,14 @@ private TextView tematicas;
                 }
 
 
+
+                // Cuando termine de hacer la opcion que finalice
+
+
+                finish();
+
+
+
             }
         });
 
@@ -156,6 +165,9 @@ private TextView tematicas;
             public void onClick(View arg0)
             {
                 Log.i("Borra", "onClick: ");
+
+
+                finish();
             }
         });
 
@@ -189,6 +201,17 @@ private TextView tematicas;
         super.onBackPressed();
         finish();
     }
+
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();  // Always call the superclass method first
+
+        // Activity being restarted from stopped state
+    }
+
+
 
 
     public class JsonTask2 extends AsyncTask<URL, Void, List<Tutor_tfg>> {
@@ -289,6 +312,9 @@ private TextView tematicas;
                     // Parsear el flujo con formato JSON
 
 
+
+
+
                 }
 
             } catch (Exception e) {
@@ -307,6 +333,9 @@ private TextView tematicas;
             /*
             Asignar los objetos de Json parseados al adaptador
              */
+
+
+
             if(variable !=null) {
 
                 // Crear un toast si se ha guardado
@@ -319,6 +348,10 @@ private TextView tematicas;
             }
 
         }
+
+
+
+
 
 
 
