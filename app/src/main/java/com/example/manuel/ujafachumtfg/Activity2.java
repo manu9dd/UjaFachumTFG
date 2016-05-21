@@ -334,7 +334,11 @@ private TextView tematicas;
             Asignar los objetos de Json parseados al adaptador
              */
 
-
+            Toast.makeText(
+                    getBaseContext(),
+                    "Ha elegido a : "+nombretutor.getText()+" "+apellidotutor.getText(),
+                    Toast.LENGTH_LONG)
+                    .show();
 
             if(variable !=null) {
 

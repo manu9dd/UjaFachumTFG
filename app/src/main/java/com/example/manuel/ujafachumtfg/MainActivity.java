@@ -303,9 +303,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-             //   .setIcon(android.R.drawable.ic_dialog_alert)
+                .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Closing Activity")
-                .setMessage("¿Estas seguro que deseas salir de la aplicacion?")
+                .setMessage("¿Esta seguro que desea salir de la aplicacion?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener()
                 {
                     @Override
