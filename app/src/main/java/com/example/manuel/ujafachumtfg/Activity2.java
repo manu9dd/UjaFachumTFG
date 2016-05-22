@@ -124,11 +124,7 @@ private TextView tematicas;
             {
                 Log.i("Elige", "onClick: ");
 
-            // Llamamos a la funcion del servidor para guardar los tfgs
 
-
-
-                // si aceptamos hacemos esta parte si no hacemos la otra
                 try {
                     ConnectivityManager connMgr = (ConnectivityManager)
                             getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -165,9 +161,29 @@ private TextView tematicas;
             public void onClick(View arg0)
             {
                 Log.i("Borra", "onClick: ");
+                
+                try {
+                    ConnectivityManager connMgr = (ConnectivityManager)
+                            getSystemService(Context.CONNECTIVITY_SERVICE);
+
+                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+                    if (networkInfo != null && networkInfo.isConnected()) {
+                        new Elimina_Tutor().execute(new URL("http://manuamate.hol.es/eliminatutor.php?usuario="+usuarioconectado+"&tutor="+tfg.getCodigoTutor()));
+                    } else {
+                        Toast.makeText(getBaseContext(), "Error de conexion", Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+
+                // Cuando termine de hacer la opcion que finalice
 
 
                 finish();
+
+
             }
         });
 
@@ -366,6 +382,84 @@ private TextView tematicas;
 
 
 
+    public class Elimina_Tutor extends AsyncTask<URL, Void, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+
+            String var = null;
+
+
+            try {
+
+                // Establecer la conexion
+                con = (HttpURLConnection)urls[0].openConnection();
+                con.setConnectTimeout(15000);
+                con.setReadTimeout(10000);
+
+                // Obtener el estado del recurso
+                int statusCode = con.getResponseCode();
+
+                if(statusCode!=200) {
+
+                    // MIRAR DESDE AQUI EN CASO DE ERROR
+
+
+                } else {
+
+                    // Parsear el flujo con formato JSON
+
+
+
+
+
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+            }finally {
+                con.disconnect();
+            }
+            return var;
+        }
+
+
+
+        @Override
+        protected void onPostExecute(String variable) {
+            /*
+            Asignar los objetos de Json parseados al adaptador
+             */
+
+            Toast.makeText(
+                    getBaseContext(),
+                    "Ha eliminado a : "+nombretutor.getText()+" "+apellidotutor.getText(),
+                    Toast.LENGTH_LONG)
+                    .show();
+
+            if(variable !=null) {
+
+                // Crear un toast si se ha guardado
+
+
+            }else{
+
+                // Crear un toast si no se ha guardado
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+    }
 
 
 }
