@@ -117,6 +117,12 @@ private TextView tematicas;
 
         // Boton de elegir
 
+
+
+
+
+
+
         btn_eligetutor = (Button)findViewById(R.id.button_eligetutor);
 
         btn_eligetutor.setOnClickListener(new View.OnClickListener() {
@@ -125,28 +131,46 @@ private TextView tematicas;
                 Log.i("Elige", "onClick: ");
 
 
-                try {
-                    ConnectivityManager connMgr = (ConnectivityManager)
-                            getSystemService(Context.CONNECTIVITY_SERVICE);
+                new AlertDialog.Builder(btn_eligetutor.getContext())
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Eleccion del tutor")
+                        .setMessage("¿Esta seguro que desea elegir el tutor: "+tfg.getNombreTutor()+" "+tfg.getApellidosTutor()+"?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                                try {
+                                    ConnectivityManager connMgr = (ConnectivityManager)
+                                            getSystemService(Context.CONNECTIVITY_SERVICE);
 
-                    if (networkInfo != null && networkInfo.isConnected()) {
-                        new Elige_Tutor().execute(new URL("http://manuamate.hol.es/eligetutor.php?usuario="+usuarioconectado+"&tutor="+tfg.getCodigoTutor()));
-                    } else {
-                        Toast.makeText(getBaseContext(), "Error de conexion", Toast.LENGTH_LONG).show();
-                    }
+                                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
+                                    if (networkInfo != null && networkInfo.isConnected()) {
+                                        new Elige_Tutor().execute(new URL("http://manuamate.hol.es/eligetutor.php?usuario="+usuarioconectado+"&tutor="+tfg.getCodigoTutor()));
+                                    } else {
+                                        Toast.makeText(getBaseContext(), "Error de conexion", Toast.LENGTH_LONG).show();
+                                    }
 
-
-
-                // Cuando termine de hacer la opcion que finalice
+                                } catch (MalformedURLException e) {
+                                    e.printStackTrace();
+                                }
 
 
-                finish();
+
+                                // Cuando termine de hacer la opcion que finalice
+
+
+                                finish();
+
+                            }
+
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+
+
+
 
 
 
@@ -162,26 +186,45 @@ private TextView tematicas;
             {
                 Log.i("Borra", "onClick: ");
                 
-                try {
-                    ConnectivityManager connMgr = (ConnectivityManager)
-                            getSystemService(Context.CONNECTIVITY_SERVICE);
 
-                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                new AlertDialog.Builder(btn_borratutor.getContext())
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Borrar tutor")
+                        .setMessage("¿Esta seguro que desea eliminar el tutor: "+tfg.getNombreTutor()+" "+tfg.getApellidosTutor())
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                try {
+                                    ConnectivityManager connMgr = (ConnectivityManager)
+                                            getSystemService(Context.CONNECTIVITY_SERVICE);
 
-                    if (networkInfo != null && networkInfo.isConnected()) {
-                        new Elimina_Tutor().execute(new URL("http://manuamate.hol.es/eliminatutor.php?usuario="+usuarioconectado+"&tutor="+tfg.getCodigoTutor()));
-                    } else {
-                        Toast.makeText(getBaseContext(), "Error de conexion", Toast.LENGTH_LONG).show();
-                    }
+                                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
+                                    if (networkInfo != null && networkInfo.isConnected()) {
+                                        new Elimina_Tutor().execute(new URL("http://manuamate.hol.es/eliminatutor.php?usuario="+usuarioconectado+"&tutor="+tfg.getCodigoTutor()));
+                                    } else {
+                                        Toast.makeText(getBaseContext(), "Error de conexion", Toast.LENGTH_LONG).show();
+                                    }
 
-                // Cuando termine de hacer la opcion que finalice
+                                } catch (MalformedURLException e) {
+                                    e.printStackTrace();
+                                }
+
+                                // Cuando termine de hacer la opcion que finalice
 
 
-                finish();
+                                finish();
+                            }
+
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+
+
+
+
+
 
 
             }

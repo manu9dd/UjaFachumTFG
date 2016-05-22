@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(activity_main);
 
 
-
         usuarioconectado =  getIntent().getStringExtra("usuario");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.appbar);
