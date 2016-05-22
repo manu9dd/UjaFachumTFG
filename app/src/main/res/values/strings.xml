@@ -28,15 +28,12 @@
     <string name="title_activity_login2">UjaFachum</string>
 
 
-
-
-
-
     <!-- String related to Activity 2 -->
 
 
     <string name="elegir_tutor"> Elige este Tutor </string>
     <string name="borra_tutor"> Quite este Tutor </string>
     <string name="tematicas"> Temáticas o Tfg´s disponibles   </string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 </resources>

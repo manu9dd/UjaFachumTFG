@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
   */
 
      String usuarioconectado;
+    String titulacionconectada;
 
     ListView lista;
     ArrayAdapter adaptador;
@@ -60,8 +61,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(activity_main);
 
-
+        // Parametros que se han recibido de la anterior actividad
         usuarioconectado =  getIntent().getStringExtra("usuario");
+        titulacionconectada = getIntent().getStringExtra("titulacion");
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.appbar);
         setSupportActionBar(toolbar);
@@ -95,10 +98,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Intent intent = getIntent();
-        String codiguito  = (String) intent.getSerializableExtra("titulacion");
 
-        // Segun el codigo de titulacion recibe un parámetro u otro
 
     /*
         Comprobar la disponibilidad de la Red
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
             if (networkInfo != null && networkInfo.isConnected()) {
-                new JsonTask().execute(new URL("http://manuamate.hol.es/tfgs.php?dato="+codiguito+"&usuario="+usuarioconectado));
+                new JsonTask().execute(new URL("http://manuamate.hol.es/tfgs.php?dato="+titulacionconectada+"&usuario="+usuarioconectado));
             } else {
                 Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
             }
@@ -153,6 +153,12 @@ public class MainActivity extends AppCompatActivity {
 
                         switch (menuItem.getItemId()) {
                             case R.id.menu_seccion_0:
+
+
+                                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                                intent.putExtra("usuario",usuarioconectado);
+                                intent.putExtra("titulacion",titulacionconectada);
+                                startActivity(intent);
 
 
 
@@ -285,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
             NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
             if (networkInfo != null && networkInfo.isConnected()) {
-                new JsonTask().execute(new URL("http://manuamate.hol.es/tfgs.php?dato="+codiguito+"&usuario="+usuarioconectado));
+                new JsonTask().execute(new URL("http://manuamate.hol.es/tfgs.php?dato="+titulacionconectada+"&usuario="+usuarioconectado));
             } else {
                 Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
             }
