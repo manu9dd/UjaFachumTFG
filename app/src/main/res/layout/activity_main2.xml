@@ -47,6 +47,31 @@
         android:layout_gravity="center_horizontal|top" />
 
 
+    <ImageView
+        android:layout_marginTop="80dp"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_marginLeft="15dp"
+        android:src="@mipmap/icono_facultad"
+        />
+
+
+
+    <TextView
+        android:id="@+id/Explicacion"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="363dp"
+        android:layout_height="180dp"
+        android:textSize="15sp"
+        android:layout_marginTop="350dp"
+        android:text="@string/explicacion"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center_horizontal|top" />
+
+
+
+
+
 
 
 </FrameLayout>
