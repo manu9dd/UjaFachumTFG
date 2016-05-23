@@ -8,7 +8,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.manuel.ujafachumtfg.LoginActivity">
+    android:background="@color/Indigo"
+    tools:context="com.example.manuel.ujafachumtfg.LoginActivity"
+    style="@style/AppTheme">
 
     <!-- Login progress -->
     <ProgressBar
@@ -46,15 +48,15 @@
         </LinearLayout>
     </ScrollView>
 
+
     <Button
         android:id="@+id/email_sign_in_button"
         style="?android:textAppearanceSmall"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/action_sign_in"
         android:textStyle="bold"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/password"
+        android:layout_alignBottom="@+id/login_form"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -69,9 +71,10 @@
         android:inputType="textPassword"
         android:maxLines="1"
         android:singleLine="true"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/email_sign_in_button"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="27dp" />
 
     <AutoCompleteTextView
         android:id="@+id/email"
@@ -82,8 +85,9 @@
         android:maxLines="1"
         android:singleLine="true"
         android:layout_above="@+id/password"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="15dp" />
 
 
 </RelativeLayout>

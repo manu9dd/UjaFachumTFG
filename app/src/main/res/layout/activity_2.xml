@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
+    android:background="@color/Indigo"
     tools:context="com.example.manuel.ujafachumtfg.Activity2"
     android:weightSum="1">
 
