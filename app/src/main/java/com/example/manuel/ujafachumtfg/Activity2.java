@@ -58,7 +58,7 @@ public class Activity2 extends AppCompatActivity {
     String usuarioconectado;
 
 
-private TextView tematicas;
+    private TextView tematicas;
 
     private TextView apellidotutor;
     private TextView codigotutor;
@@ -98,7 +98,7 @@ private TextView tematicas;
 
 
 ////////////////////
-        this.tematicas = (TextView) findViewById(R.id.tematicas);
+
 
         this.apellidotutor = (TextView) findViewById(R.id.tutor);
         this.nombretutor = (TextView) findViewById(R.id.NombreTutor);

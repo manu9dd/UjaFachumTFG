@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UjaFachumTFG</string>
+    <string name="app_name">Seleccion TFG</string>
     <string name="DataBaseName">Fachumdb</string>
 
 
@@ -35,5 +35,13 @@
     <string name="borra_tutor"> Quite este Tutor </string>
     <string name="tematicas"> Temáticas o Tfg´s disponibles   </string>
     <string name="title_activity_main2">Main2Activity</string>
+
+
+
+    <!-- String related to Main Activity 2  -->
+
+    <string name="titulomain2"> Bienvenidos  </string>
+    <string name="subtitulo2"> Uso y finalidad de la aplicacion  </string>
+
 
 </resources>
