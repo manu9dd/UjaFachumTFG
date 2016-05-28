@@ -45,7 +45,7 @@ import java.util.List;
 
 
 
-public class Activity2 extends AppCompatActivity {
+public class GestionActivity extends AppCompatActivity {
 
 
 

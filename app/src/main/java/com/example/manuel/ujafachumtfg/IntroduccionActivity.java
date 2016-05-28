@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class Main2Activity extends AppCompatActivity {
+public class IntroduccionActivity extends AppCompatActivity {
 
 
     private TextView TituloCabecera;
