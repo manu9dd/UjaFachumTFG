@@ -10,7 +10,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:background="@color/Indigo"
-    tools:context="com.example.manuel.ujafachumtfg.Activity2"
+    tools:context=".GestionActivity"
     android:weightSum="1">
 
 

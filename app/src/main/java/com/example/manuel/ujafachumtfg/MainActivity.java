@@ -13,7 +13,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.internal.view.ContextThemeWrapper;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -87,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, Activity2.class);
+                Intent intent = new Intent(MainActivity.this, GestionActivity.class);
                 Tfg tfg = ((AdaptadorDeTfgs)lista.getAdapter()).getItem(position);
                 intent.putExtra("title", tfg);
                 intent.putExtra("usuario",usuarioconectado);
@@ -155,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.menu_seccion_0:
 
 
-                                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                                Intent intent = new Intent(MainActivity.this, IntroduccionActivity.class);
                                 intent.putExtra("usuario",usuarioconectado);
                                 intent.putExtra("titulacion",titulacionconectada);
                                 startActivity(intent);
