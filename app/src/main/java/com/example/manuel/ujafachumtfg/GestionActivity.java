@@ -135,7 +135,7 @@ public class GestionActivity extends AppCompatActivity {
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Eleccion del tutor")
                         .setMessage("¿Esta seguro que desea elegir el tutor: "+tfg.getNombreTutor()+" "+tfg.getApellidosTutor()+"?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener()
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -191,7 +191,7 @@ public class GestionActivity extends AppCompatActivity {
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Borrar tutor")
                         .setMessage("¿Esta seguro que desea eliminar el tutor: "+tfg.getNombreTutor()+" "+tfg.getApellidosTutor())
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener()
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

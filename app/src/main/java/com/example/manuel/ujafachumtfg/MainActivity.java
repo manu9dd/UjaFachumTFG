@@ -309,7 +309,7 @@ public class MainActivity extends AppCompatActivity {
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Closing Activity")
                 .setMessage("¿Esta seguro que desea salir de la aplicacion?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                .setPositiveButton("Si", new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
