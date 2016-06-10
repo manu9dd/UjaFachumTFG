@@ -56,7 +56,7 @@ public class GestionActivity extends AppCompatActivity {
     private ArrayAdapter<String> listAdapter ;
 
     String usuarioconectado;
-
+    String prioridad_elegida;
 
     private TextView tematicas;
 
@@ -77,7 +77,7 @@ public class GestionActivity extends AppCompatActivity {
 
 
 
-
+        prioridad_elegida = getIntent().getStringExtra("prioridad");
         usuarioconectado =  getIntent().getStringExtra("usuario");
 
 ////// la lista eo
@@ -125,6 +125,11 @@ public class GestionActivity extends AppCompatActivity {
 
         btn_eligetutor = (Button)findViewById(R.id.button_eligetutor);
 
+
+        if(!prioridad_elegida.contentEquals("0"))
+        {
+            btn_eligetutor.setVisibility(View.INVISIBLE);
+        }
         btn_eligetutor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0)
             {
@@ -180,6 +185,12 @@ public class GestionActivity extends AppCompatActivity {
         // Boton de borrado
 
         btn_borratutor = (Button)findViewById(R.id.button_borratutor);
+
+
+        if(prioridad_elegida.contentEquals("0"))
+        {
+            btn_borratutor.setVisibility(View.INVISIBLE);
+        }
 
         btn_borratutor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0)

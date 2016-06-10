@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 Tfg tfg = ((AdaptadorDeTfgs)lista.getAdapter()).getItem(position);
                 intent.putExtra("title", tfg);
                 intent.putExtra("usuario",usuarioconectado);
+                intent.putExtra("prioridad",tfg.getPrioridad());
                 startActivity(intent);
                 Log.i("TOCO", "entro");
 
